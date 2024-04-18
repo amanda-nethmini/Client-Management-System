@@ -1,0 +1,40 @@
+﻿@page
+@model CrudApp.Pages.Books.IndexModel
+@{
+}
+
+<br />
+<h2>All Books</h2>
+
+<br />
+<a class="btn btn-primary btn-sm" href="/Books/Create">+Add New Book</a>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>GENRE</th>
+            <th>SUMMARY</th>
+            <th>ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listBooks)
+        {
+            <tr>
+                
+                <td>@item.title</td>
+                <td>@item.author</td>
+                <td>@item.genre</td>
+                <td>@item.summary</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Books/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Books/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
